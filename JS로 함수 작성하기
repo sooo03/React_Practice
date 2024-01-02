@@ -1,0 +1,39 @@
+const students = [
+    {name: "김철수", score: 85},
+    {name: "박영희", score: 92},
+    {name: "이민준", score: 76},
+    {name: "최서윤", score: 88},
+    {name: "한지민", score: 67},
+];
+
+//1. 'students' 배열을 사용하여 학생들의 이름만을 포함하는 새 배열을 만드는 'getNames' 함수 작성. 'map' 메소드 사용
+function getNames(){
+    const onlyNames = students.map(student => student.name);
+    return onlyNames;
+}
+
+//2. 'students' 배열에서 점수가 80점 이상인 학생들만 필터링하는 'filterHighScores' 함수 작성. 'filter' 메소드 사용
+function filterHighScores() {
+    const highScores = students.filter((value) => value.score >= 80);
+    return highScores;   
+}
+
+//3. 'students' 배열의 각 학생에 대해 'name' 속성을 대문자로 변경하고, 'score' 속성에 5점을 추가하는 'updateStudents' 함수 작성. 'map' 메소드 사용
+function updateStudents() {
+    return students.map(student => ({
+        name: student.name.toUpperCase(),
+        score: student.score + 5
+    }));
+}
+
+//4. 'students' 배열의 모든 학생들의 점수를 합산하는 'getTotalScore' 함수 작성. 'reduce' 메소드 사용
+function getTotalScore() {
+    const sumValue = students.map(student => student.score).reduce((a, b) => a + b, 0);
+    return sumValue;
+}
+
+//5. 'students' 배열을 사용하여 이름이 '김'씨인 학생들만을 필터링하는 'filterKimFamily' 함수 작성. 'filter' 메소드 사용
+function filterKimFamily() {
+    const filtered = students.filter(student => student.name.includes("김"));
+    return filtered;
+}
